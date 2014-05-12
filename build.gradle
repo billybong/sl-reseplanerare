@@ -1,0 +1,24 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.ratpack:ratpack-gradle:0.9.4"
+    }
+}
+
+apply plugin: "ratpack-groovy"
+apply plugin: "idea"
+
+repositories {
+    jcenter()
+    maven { url "http://repo.springsource.org/repo" } // for springloaded
+}
+
+dependencies {
+    springloaded "org.springsource.loaded:springloaded:1.1.5.RELEASE"
+}
+
+task stage {
+    dependsOn installApp
+}
