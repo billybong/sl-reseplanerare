@@ -12,6 +12,6 @@ http://[yourapp].herokuapp.com/reseplanerare.rss?key=XYZ
 http://www.trafiklab.se/api/sls-reseplanerare
 
 Frameworks used:
-Ratpack (micro groovy http server)
-Gradle (awesome build tool)
-Standard groovy
+* Ratpack (micro groovy http server)
+* Gradle (awesome build tool)
+* Standard groovy
