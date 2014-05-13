@@ -28,17 +28,16 @@ class SlServer {
              """
 
         trips.each {
-            def title = "($it.departure - $it.arrival) $it.transports - $it.tripTime"
-            def description = """
-                Departure: ${it.departure}
-                Arrival: ${it.arrival}
-                Trip time: $it.tripTime
-                Transports:
-                    ${it.transports.join("\n")}"""
+            def title = "($it.departure - $it.arrival) : $it.tripTime"
+            def description = """*Departure: ${it.departure}
+                *Arrival: ${it.arrival}
+                *Trip time: $it.tripTime
+                *------------------
+                *${it.transports.join("\n")}""".stripMargin('*')
 
             rss += """<item>
               <title>$title</title>
-              <description>Lorum ipsum</description>
+              <description>$description</description>
               <link>http://reseplanerare.sl.se/</link>
               <guid>$title</guid>
               <pubDate>$pubDate</pubDate>
