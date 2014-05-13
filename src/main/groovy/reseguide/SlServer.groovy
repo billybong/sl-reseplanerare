@@ -9,7 +9,7 @@ class SlServer {
     String apiKey
 
     SlServer(String apiKey) {
-        this.apiKey = apiKey //9lFYCnjzkxEoLxKJHaiCMFOM42wk7GhG
+        this.apiKey = apiKey
     }
 
     String rss() {
@@ -21,7 +21,7 @@ class SlServer {
             <channel>
              <title>SL Reseplanerare</title>
              <description>Shows which buses are appropriate for Billy</description>
-             <link>http://www.sl.se</link>
+             <link>http://reseplanerare.sl.se/</link>
              <lastBuildDate>$pubDate</lastBuildDate>
              <pubDate>$pubDate</pubDate>
              <ttl>300</ttl>
@@ -33,7 +33,7 @@ class SlServer {
             rss += """<item>
               <title>$title</title>
               <description>Lorum ipsum</description>
-              <link>http://www.sl.se/</link>
+              <link>http://reseplanerare.sl.se/</link>
               <guid>$title</guid>
               <pubDate>$pubDate</pubDate>
              </item>"""
