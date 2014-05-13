@@ -6,7 +6,7 @@ to be forwarded from the RSS reader.
 
 Usage:
 deploy to i.e. heroku and point your rss reader to:
-http://<yourapp>.herokuapp.com/reseplanerare.rss?key=XYZ
+http://[yourapp].herokuapp.com/reseplanerare.rss?key=XYZ
 
 ... where XYZ is your API key to the Reseplanerare API which you'll need to get from:
 http://www.trafiklab.se/api/sls-reseplanerare
