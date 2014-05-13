@@ -37,15 +37,14 @@ class SlServer {
     }
 
     List<Trip> fetchTrips() {
-        def slurper = new JsonSlurper()
+        def base = 'https://api.trafiklab.se/sl/reseplanerare.json?'
+        def params = [S:'9200', Z:'2817', key:'9lFYCnjzkxEoLxKJHaiCMFOM42wk7GhG', journeyProducts:'8']
+        def url = base + params.collect{it}.join('&')
 
-        String jsonText = "https://api.trafiklab.se/sl/reseplanerare.json?S=9200&key=9lFYCnjzkxEoLxKJHaiCMFOM42wk7GhG&Z=2817&journeyProducts=8".toURL().text
+        String jsonText = url.toURL().text
+        def json = new JsonSlurper().parseText(jsonText.replaceAll('#', ''))
 
-        def json = slurper.parseText(jsonText.replaceAll('#', ''))
-
-        def trips = json.HafasResponse.Trip
-
-        trips.collect {
+        json.HafasResponse.Trip.collect {
             new Trip(
                     departure: it.Summary.DepartureTime.text,
                     arrival: it.Summary.ArrivalTime.text,
