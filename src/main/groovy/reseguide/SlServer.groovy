@@ -6,6 +6,12 @@ import reseguide.domain.Trip
 import java.text.SimpleDateFormat
 
 class SlServer {
+    String apiKey
+
+    SlServer(String apiKey) {
+        this.apiKey = apiKey //9lFYCnjzkxEoLxKJHaiCMFOM42wk7GhG
+    }
+
     String rss() {
         List<Trip> trips = fetchTrips()
         String pubDate = new SimpleDateFormat('EEE, d MMM yyyy HH:mm:ss Z', Locale.US).format(new Date())
@@ -38,7 +44,7 @@ class SlServer {
 
     List<Trip> fetchTrips() {
         def base = 'https://api.trafiklab.se/sl/reseplanerare.json?'
-        def params = [S:'9200', Z:'2817', key:'9lFYCnjzkxEoLxKJHaiCMFOM42wk7GhG', journeyProducts:'8']
+        def params = [S:'9200', Z:'2817', key:apiKey, journeyProducts:'8']
         def url = base + params.collect{it}.join('&')
 
         String jsonText = url.toURL().text
