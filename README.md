@@ -11,7 +11,7 @@ http://[yourapp].herokuapp.com/reseplanerare.rss?key=XYZ
 ... where XYZ is your API key to the Reseplanerare API which you'll need to get from:
 http://www.trafiklab.se/api/sls-reseplanerare
 
-Frameworks:
+Frameworks used:
 Ratpack (micro groovy http server)
 Gradle (awesome build tool)
 Standard groovy
