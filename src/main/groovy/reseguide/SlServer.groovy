@@ -29,6 +29,12 @@ class SlServer {
 
         trips.each {
             def title = "($it.departure - $it.arrival) $it.transports - $it.tripTime"
+            def description = """
+                Departure: ${it.departure}
+                Arrival: ${it.arrival}
+                Trip time: $it.tripTime
+                Transports:
+                    ${it.transports.join("\n")}"""
 
             rss += """<item>
               <title>$title</title>
@@ -55,7 +61,7 @@ class SlServer {
                     departure: it.Summary.DepartureTime.text,
                     arrival: it.Summary.ArrivalTime.text,
                     tripTime: it.Summary.Duration,
-                    transports: it.SubTrip.collect { it.Transport.Name })
+                    transports: it.SubTrip.collect {"$it.Transport.Name ($it.Origin.text -> $it.Destination.text)"})
         }
     }
 }
